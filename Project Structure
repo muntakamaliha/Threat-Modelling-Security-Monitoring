@@ -1,0 +1,7 @@
+wazuh-installation-ubuntu-server/
+│
+├── README.md
+├── ubuntu-server-installation.md
+├── wazuh-installation.md
+├── commands-used.md
+└── conclusion.md
