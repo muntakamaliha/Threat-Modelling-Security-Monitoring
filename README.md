@@ -1,25 +1,59 @@
-# Wazuh Installation on Ubuntu Server 22.04.5
-Manual setup of Wazuh on Ubuntu – full connection process. Created as a personal practice after following the lab manual and Linux command lessons from sir. Includes step-by-step commands and configuration.
+# Threat Modeling and Security Monitoring using Wazuh SIEM
 
-## Author
+## Project Overview
 
-- Name: Muntaka Maliha Rahman
+This project demonstrates the deployment of a Security Information and Event Management (SIEM) solution using Wazuh. The environment consists of an Ubuntu Server hosting the Wazuh Manager, Wazuh Indexer, and Wazuh Dashboard, with Windows 11 and Kali Linux configured as monitored endpoints.
+
+The project focuses on centralized log management, threat detection, file integrity monitoring, authentication monitoring, and security event analysis in a virtual lab environment.
 
 ---
 
-# Project Objective
+# Author
 
-This project demonstrates the complete installation process of Ubuntu Server 22.04.5 and Wazuh SIEM. The server is remotely accessed using PuTTY and the project is uploaded to GitHub.
+**Name:** Muntaka Maliha Rahman
+
+---
+
+# Project Objectives
+
+- Deploy Wazuh SIEM on Ubuntu Server
+- Configure Windows 11 and Kali Linux as Wazuh Agents
+- Monitor security events from multiple endpoints
+- Demonstrate File Integrity Monitoring (FIM)
+- Perform Threat Hunting using Wazuh Dashboard
+- Analyze authentication and system events
+- Explore Wazuh security modules
+- Document the complete deployment process
 
 ---
 
 # Technologies Used
 
-- Ubuntu Server 22.04.5 LTS
+- Ubuntu Server 24.04 LTS
 - Wazuh SIEM
-- PuTTY
+- Wazuh Dashboard
+- Wazuh Manager
+- Wazuh Indexer
+- Windows 11
+- Kali Linux
+- Oracle VirtualBox
+- OpenSSH
+- MobaXterm / PuTTY
+- Git
 - GitHub
-- VirtualBox / VMware
+
+---
+
+# Lab Environment
+
+| Component | Details |
+|------------|------------|
+| Hypervisor | Oracle VirtualBox |
+| SIEM Platform | Wazuh |
+| Server | Ubuntu Server 24.04 LTS |
+| Endpoint 1 | Windows 11 |
+| Endpoint 2 | Kali Linux |
+| Network Mode | Bridged Adapter |
 
 ---
 
@@ -27,90 +61,137 @@ This project demonstrates the complete installation process of Ubuntu Server 22.
 
 1. Install Ubuntu Server
 2. Configure Network
-3. Enable OpenSSH
-4. Connect using PuTTY
-5. Install Wazuh SIEM
-6. Verify Services
-7. Upload Project to GitHub
+3. Enable SSH
+4. Connect remotely using MobaXterm / PuTTY
+5. Install Wazuh
+6. Verify Wazuh Services
+7. Configure Windows Agent
+8. Configure Kali Linux Agent
+9. Generate Security Events
+10. Perform Threat Hunting
+11. Demonstrate File Integrity Monitoring
+12. Upload Project to GitHub
 
 ---
 
-# Files Included
+# Repository Contents
 
 | File | Description |
-|---|---|
-| ubuntu-server-installation.md | Ubuntu Server installation steps |
-| wazuh-installation.md | Wazuh installation process |
-| commands-used.md | All commands used |
-| conclusion.md | Final project conclusion |
+|------|-------------|
+| README.md | Project overview |
+| ubuntu-server-installation.md | Ubuntu installation guide |
+| wazuh-installation.md | Wazuh installation guide |
+| commands-used.md | Commands used during installation |
+| security-events-demonstration.md | Security event generation |
+| dashboard-features.md | Dashboard feature explanation |
+| threat-hunting.md | Threat hunting examples |
+| fim-monitoring.md | File Integrity Monitoring |
+| conclusion.md | Project conclusion |
+
+---
+
+# Wazuh Dashboard Modules Demonstrated
+
+- Security Events
+- Threat Hunting
+- Discover
+- File Integrity Monitoring (FIM)
+- MITRE ATT&CK
+- Inventory
+- Vulnerability Detection
+- Agent Management
+
+---
+
+# Security Events Demonstrated
+
+- Failed Login (Event ID 4625)
+- Successful Login (Event ID 4624)
+- File Creation
+- File Modification
+- File Deletion
+- PowerShell Execution
+- Command Prompt Execution
+- User Account Creation
+- User Account Deletion
+- Windows Service Start
+- Windows Service Stop
+
+---
+
+# Wazuh Services Verification
+
+```bash
+sudo systemctl status wazuh-manager
+
+sudo systemctl status wazuh-indexer
+
+sudo systemctl status wazuh-dashboard
+```
+
+All services were successfully running.
+
+---
+
+# Threat Hunting Examples
+
+```text
+event.code:4625
+
+event.code:4624
+
+agent.name:"Windows"
+
+rule.level>=7
+
+rule.groups:syscheck
+
+syscheck.path:*demo.txt
+```
+
+---
+
+# File Integrity Monitoring
+
+The following actions were successfully monitored:
+
+- File Created
+- File Modified
+- File Deleted
+- Hash Changes
+- Timestamp Changes
+
+---
+
+# Screenshots
+
+This repository includes screenshots demonstrating:
+
+- Ubuntu Server Installation
+- Wazuh Installation
+- Dashboard Login
+- Active Agents
+- Security Events
+- Threat Hunting
+- Discover
+- File Integrity Monitoring
+- MITRE ATT&CK
+- Inventory
+- Vulnerability Detection
 
 ---
 
 # System Requirements
 
 | Component | Requirement |
-|---|---|
-| CPU | 2 Core |
+|------------|------------|
+| CPU | 2 Cores or higher |
 | RAM | 4 GB Minimum |
 | Storage | 50 GB |
-| OS | Ubuntu Server 22.04.5 |
-
----
-
-# PuTTY Connection
-
-Host:
-```text
-192.168.47.131
-```
-
-Port:
-```text
-22
-```
-
----
-
-# Wazuh Dashboard
-
-```text
-https://SERVER-IP
-```
-
-Example:
-```text
-https://192.168.47.131
-```
-
----
-
-# Verification
-
-The following services were verified successfully:
-
-```bash
-sudo systemctl status wazuh-manager
-sudo systemctl status wazuh-indexer
-sudo systemctl status wazuh-dashboard
-```
-
-All services were running successfully.
-
----
-
-# Git Commands
-
-```bash
-git init
-git add .
-git commit -m "Complete Wazuh SIEM project"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/wazuh-installation-ubuntu-server.git
-git push -u origin main
-```
+| Operating System | Ubuntu Server |
 
 ---
 
 # Conclusion
 
-Wazuh SIEM was successfully installed on Ubuntu Server 22.04.5 and managed remotely using PuTTY.
+This project successfully demonstrates the deployment of a Wazuh SIEM environment for centralized security monitoring. Windows 11 and Kali Linux endpoints were integrated with the Wazuh Manager, enabling real-time log collection, authentication monitoring, file integrity monitoring, and threat hunting. The project showcases how SIEM technology can be used to detect, investigate, and monitor security events in a virtual SOC environment.
