@@ -192,29 +192,6 @@ This repository includes screenshots demonstrating:
 
 ---
 
-Windows 11 Agent
-        │
-        │
-        ▼
-+-------------------+
-|                   |
-|   Wazuh Manager   |
-|                   |
-+-------------------+
-        │
-        ▼
-+-------------------+
-|  Wazuh Indexer    |
-+-------------------+
-        │
-        ▼
-+-------------------+
-| Wazuh Dashboard   |
-+-------------------+
-        ▲
-        │
-   Kali Linux Agent
-
 
 # Conclusion
 
