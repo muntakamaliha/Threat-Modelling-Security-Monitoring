@@ -192,6 +192,30 @@ This repository includes screenshots demonstrating:
 
 ---
 
+Windows 11 Agent
+        │
+        │
+        ▼
++-------------------+
+|                   |
+|   Wazuh Manager   |
+|                   |
++-------------------+
+        │
+        ▼
++-------------------+
+|  Wazuh Indexer    |
++-------------------+
+        │
+        ▼
++-------------------+
+| Wazuh Dashboard   |
++-------------------+
+        ▲
+        │
+   Kali Linux Agent
+
+
 # Conclusion
 
 This project successfully demonstrates the deployment of a Wazuh SIEM environment for centralized security monitoring. Windows 11 and Kali Linux endpoints were integrated with the Wazuh Manager, enabling real-time log collection, authentication monitoring, file integrity monitoring, and threat hunting. The project showcases how SIEM technology can be used to detect, investigate, and monitor security events in a virtual SOC environment.
